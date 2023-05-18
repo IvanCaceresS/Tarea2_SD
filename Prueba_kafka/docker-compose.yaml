@@ -21,18 +21,68 @@ services:
     depends_on:
       - zookeeper
   
-  producer:
+  producer1:
     build: ./producer
-    container_name: producer
+    container_name: producer1
     depends_on:
       - kafka
       - zookeeper
     volumes:
       - ./producer:/usr/src/app
+  
+  producer2:
+    build: ./producer
+    container_name: producer2
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer:/usr/src/app
+
+  producer3:
+    build: ./producer
+    container_name: producer3
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer:/usr/src/app
+
+  
      
-  consumer:
+  consumer1:
     build: ./consumer
-    container_name: consumer
+    container_name: consumer1
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer
+    volumes:
+      - ./consumer:/usr/src/app
+  
+  consumer2:
+    build: ./consumer
+    container_name: consumer2
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer
+    volumes:
+      - ./consumer:/usr/src/app
+  
+  consumer3:
+    build: ./consumer
+    container_name: consumer3
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer
+    volumes:
+      - ./consumer:/usr/src/app
+
+  consumer4:
+    build: ./consumer
+    container_name: consumer4
     depends_on:
       - kafka
       - zookeeper

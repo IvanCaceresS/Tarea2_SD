@@ -9,8 +9,13 @@ docker compose down -v
 #Abrir la bash de cada contener creado
 docker ps
 docker exec -it <id_contenedor> bash
-docker exec -it producer bash
-docker exec -it consumer bash
+docker exec -it producer1 bash
+docker exec -it producer2 bash
+docker exec -it producer3 bash
+docker exec -it consumer1 bash
+docker exec -it consumer2 bash
+docker exec -it consumer3 bash
+docker exec -it consumer4 bash
 
 
 # PROBANDO SI FUNCIONA KAFKA
