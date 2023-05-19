@@ -1,0 +1,11 @@
+Escenario: "La Isla de los Animales Parlantes"
+
+En una isla remota y misteriosa llamada "La Isla de los Animales Parlantes", 
+los animales han adquirido la capacidad de comunicarse con los humanos a 
+través de un dispositivo especial llamado "AnimalCom". Este dispositivo, 
+similar a un collar, permite a los animales enviar mensajes de texto a los 
+humanos para expresar sus pensamientos, necesidades y aventuras.
+
+Tu misión es desarrollar un sistema de monitoreo de mensajes AnimalCom 
+utilizando tecnologías de colas de mensajería. El sistema permitirá a los 
+humanos recibir y responder a los mensajes de los animales en tiempo real.

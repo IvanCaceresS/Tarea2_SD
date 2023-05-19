@@ -9,13 +9,18 @@ docker compose down -v
 # Abrir la bash de cada contener creado
 docker ps
 docker exec -it <id_contenedor> bash (PARA ACCEDER A KAFKA CON ID CONTENEDOR DE KAFKA)
-docker exec -it producer1 bash
-docker exec -it producer2 bash
-docker exec -it producer3 bash
-docker exec -it consumer1 bash
-docker exec -it consumer2 bash
-docker exec -it consumer3 bash
-docker exec -it consumer4 bash
+
+docker exec -it producer_elefante bash
+docker exec -it producer_girafa bash
+docker exec -it producer_leon bash
+docker exec -it producer_mono bash
+docker exec -it producer_tigre bash
+
+docker exec -it consumer_elefante bash
+docker exec -it consumer_girafa bash
+docker exec -it consumer_leon bash
+docker exec -it consumer_mono bash
+docker exec -it consumer_tigre bash
 
 
 # PROBANDO SI FUNCIONA KAFKA

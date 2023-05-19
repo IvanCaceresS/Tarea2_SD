@@ -8,7 +8,6 @@ def consume_messages(topic_name):
         print(f"Mensaje recibido de {message.topic}: {message.value}")
 
 if __name__ == "__main__":
-    topic_names = ["topic_Category0", "topic_Category1", "topic_Category2", "topic_Category3", "topic_Category4"]
-    random_topic = random.choice(topic_names)
-    print("Estoy escuchando el topic ", random_topic)
-    consume_messages(random_topic)
+    topic = "Girafa"
+    print("Estoy escuchando el topic ", topic)
+    consume_messages(topic)
