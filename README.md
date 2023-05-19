@@ -6,9 +6,9 @@ docker compose up --build
 # Botar sistema
 docker compose down -v
 
-#Abrir la bash de cada contener creado
+# Abrir la bash de cada contener creado
 docker ps
-docker exec -it <id_contenedor> bash
+docker exec -it <id_contenedor> bash (PARA ACCEDER A KAFKA CON ID CONTENEDOR DE KAFKA)
 docker exec -it producer1 bash
 docker exec -it producer2 bash
 docker exec -it producer3 bash
@@ -26,4 +26,21 @@ Enviamos mensajes desde un producer:
 Leemos los mensajes desde un consumer:
 - kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mi_tema --from-beginning
 
+# -----------------------------------------------------------
+# -----------------------RABBITMQ----------------------------
+# Levantar sistema
+docker compose up --build 
+# Botar sistema
+docker compose down -v
+
+# Abrir la bash de cada contener creado
+docker ps
+docker exec -it <id_contenedor> bash (PARA ACCEDER A RABBITMQ CON ID CONTENEDOR DE RABBITMQ)
+docker exec -it producer1 bash
+docker exec -it producer1 bash
+docker exec -it producer3 bash
+docker exec -it consumer1 bash
+docker exec -it consumer2 bash
+docker exec -it consumer3 bash
+docker exec -it consumer4 bash
 # -----------------------------------------------------------

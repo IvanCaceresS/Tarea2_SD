@@ -15,22 +15,9 @@ def produce_messages(random_topic, delta_t, min_message_size, max_message_size):
     while True:
             message_size = random.randint(min_message_size, max_message_size)
             message = generate_message(message_size)
-            if device["category"] == "Category0":
-                topic_name = "topic_Category0"
-            elif device["category"] == "Category1":
-                topic_name = "topic_Category1"
-            elif device["category"] == "Category2":
-                topic_name = "topic_Category2"
-            elif device["category"] == "Category3":
-                topic_name = "topic_Category3"
-            elif device["category"] == "Category4":
-                topic_name = "topic_Category4"
-            else:
-                topic_name = "default_topic"  # Default topic if no category matches
-                print("hola")
-                
-            producer.send(topic_name, value=message)
-            print(f"Device {device['id']}, {topic_name}, sending: {message}")
+                           
+            producer.send(random_topic, value=message)
+            print(f"{random_topic}, sending: {message}")
         
             time.sleep(delta_t)
 
