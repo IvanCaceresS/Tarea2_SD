@@ -19,11 +19,11 @@ def produce_messages(random_topic, delta_t, min_message_size, max_message_size):
             producer.send(random_topic, value=message)
             print(f"{random_topic}, sending: {message}")
         
-            # time.sleep(delta_t)
+            time.sleep(delta_t)
 
 if __name__ == "__main__":
     delta_t = 1  # Time interval between message sends (in seconds)
-    min_message_size = 100000  # Minimum size of the information sent by each device
-    max_message_size = 200000  # Maximum size of the information sent by each device
+    min_message_size = 10  # Minimum size of the information sent by each device
+    max_message_size = 20  # Maximum size of the information sent by each device
 
     produce_messages("Elefante", delta_t, min_message_size, max_message_size)
