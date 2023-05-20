@@ -1,0 +1,68 @@
+(a) Escalabilidad: ¿Cómo manejan Kafka y RabbitMQ el crecimiento en el número de productores (dispositivos) y consumidores de datos? Implemente dos 
+mejoras que muestren cambios en la escalabilidad del problema. Debe implementar una mejora para Kafka y una para RabbitMQ. 
+Hints: Revise los grupos de consumidores en Kafka y patrones de intercambios de mensaje en RabbitMQ.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Kafka: Kafka es conocido por su capacidad de escalar horizontalmente de manera eficiente. Puede manejar un gran número de productores y consumidores 
+debido a su arquitectura distribuida y su capacidad para particionar los datos en diferentes particiones. Además, Kafka admite grupos de consumidores, 
+lo que permite agregar más consumidores según sea necesario para procesar el alto volumen de datos. Para mejorar la escalabilidad en Kafka, puedes 
+aumentar el número de particiones en los temas relevantes y ajustar el equilibrio de carga entre los consumidores dentro de un grupo de consumidores.
+
+RabbitMQ: RabbitMQ también es escalable y puede manejar múltiples productores y consumidores. Sin embargo, su enfoque principal es el patrón de mensajería 
+punto a punto, lo que significa que cada mensaje se entrega a un único consumidor. Para mejorar la escalabilidad en RabbitMQ, puedes utilizar intercambios 
+de mensajes y colas fanout, direct o topic, según tus necesidades, para distribuir los mensajes entre los consumidores y permitir una mayor paralelización.
+
+###############################################################################################################################################################
+
+(b) Tolerancia a fallos: ¿Qué mecanismos ofrecen Kafka y RabbitMQ para garantizar la disponibilidad y la recuperación ante errores? Entre Kafka y RabbitMQ 
+¿Cuál entrega mejores herramientas para el manejo de errores? ¿De qué depende? Compare estadísticamente esto.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Kafka: Kafka ofrece una alta tolerancia a fallos debido a su arquitectura distribuida y la replicación de particiones en múltiples nodos. Si un nodo falla, 
+los otros nodos continúan funcionando sin interrupciones. Kafka también permite la configuración de factores de replicación para garantizar la disponibilidad 
+de los datos. Además, Kafka mantiene un registro de confirmación para cada mensaje, lo que asegura que los mensajes sean entregados al menos una vez.
+
+RabbitMQ: RabbitMQ también ofrece tolerancia a fallos a través de la replicación y distribución de colas en varios nodos. Si un nodo falla, otros nodos pueden 
+continuar procesando y entregando mensajes. RabbitMQ proporciona mecanismos de confirmación y ack/nack para garantizar la entrega segura de mensajes. 
+Sin embargo, RabbitMQ puede ser más vulnerable a fallos de red o de nodo único en comparación con Kafka.
+
+###############################################################################################################################################################
+
+(c) Latencia y rendimiento: Cómo se comportan Kafka y RabbitMQ en términos de latencia y rendimiento en un escenario de alta carga y tráfico de mensajes? 
+Hints: aumente la cantidad de mensajes que envían los dispositivos.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Kafka: Kafka está diseñado para ofrecer altos niveles de rendimiento y baja latencia. Puede manejar grandes volúmenes de mensajes y permite el procesamiento 
+en tiempo real. Kafka logra esto mediante el uso de registros de commit y el almacenamiento de datos en disco, lo que permite una alta velocidad de escritura 
+y lectura de mensajes.
+
+RabbitMQ: RabbitMQ también ofrece un rendimiento sólido y baja latencia, aunque puede ser ligeramente inferior a Kafka en escenarios de alta carga y tráfico 
+de mensajes. RabbitMQ utiliza un enfoque de almacenamiento en memoria para la entrega de mensajes, lo que puede resultar en una mayor latencia en comparación 
+con el almacenamiento en disco de Kafka. Sin embargo, la diferencia de rendimiento puede depender de factores específicos del escenario y de la configuración 
+del sistema.
+
+###############################################################################################################################################################
+
+(d) Persistencia de mensajes: Qué opciones ofrecen ambos sistemas para el almacenamiento y recuperación de mensajes?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Kafka: Kafka proporciona persistencia de mensajes en disco de manera predeterminada. Los mensajes se almacenan en los registros de commit en los nodos de Kafka, 
+lo que garantiza que los mensajes estén disponibles incluso en caso de fallos. Los mensajes se conservan durante un período de tiempo configurable.
+
+RabbitMQ: RabbitMQ ofrece persistencia de mensajes mediante la configuración de colas duraderas. Los mensajes se almacenan en el disco para garantizar la 
+disponibilidad en caso de fallos. Además, RabbitMQ permite la configuración de políticas de retención de mensajes para definir cuánto tiempo se deben retener 
+los mensajes en una cola.
+
+###############################################################################################################################################################
+
+(e) Facilidad de uso y administración: ¿Cuál de los dos sistemas es más fácil de configurar y administrar?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Kafka: Kafka puede requerir una configuración y administración más avanzada debido a su arquitectura distribuida y configuraciones más complejas. Sin embargo, 
+Kafka proporciona herramientas y API sólidas para administrar y monitorear clústeres de Kafka, como Kafka Manager y Kafka Connect.
+
+RabbitMQ: RabbitMQ es generalmente considerado más fácil de configurar y administrar en comparación con Kafka. Proporciona una interfaz de administración web 
+intuitiva y herramientas adicionales como RabbitMQ Management Plugin para administrar colas, intercambios y configuraciones de RabbitMQ.
