@@ -44,6 +44,11 @@ de mensajes. RabbitMQ utiliza un enfoque de almacenamiento en memoria para la en
 con el almacenamiento en disco de Kafka. Sin embargo, la diferencia de rendimiento puede depender de factores específicos del escenario y de la configuración 
 del sistema.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+REALIZO 100 PRUEBAS DE LATENCIA CON MENSAJES CADA 5 SEGUNDOS
+REALIZO 100 PRUEBAS DE LATENCIA CON MENSAJES CADA 1 SEGUNDOS
+
+
 ###############################################################################################################################################################
 
 (d) Persistencia de mensajes: Qué opciones ofrecen ambos sistemas para el almacenamiento y recuperación de mensajes?

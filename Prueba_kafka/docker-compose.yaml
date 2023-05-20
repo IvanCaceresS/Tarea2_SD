@@ -30,41 +30,41 @@ services:
     volumes:
       - ./producer_elefante:/usr/src/app
   
-  producer_girafa:
-    build: ./producer_girafa
-    container_name: producer_girafa
-    depends_on:
-      - kafka
-      - zookeeper
-    volumes:
-      - ./producer_girafa:/usr/src/app
+  # producer_girafa:
+  #   build: ./producer_girafa
+  #   container_name: producer_girafa
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #   volumes:
+  #     - ./producer_girafa:/usr/src/app
 
-  producer_leon:
-    build: ./producer_leon
-    container_name: producer_leon
-    depends_on:
-      - kafka
-      - zookeeper
-    volumes:
-      - ./producer_leon:/usr/src/app
+  # producer_leon:
+  #   build: ./producer_leon
+  #   container_name: producer_leon
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #   volumes:
+  #     - ./producer_leon:/usr/src/app
   
-  producer_mono:
-    build: ./producer_mono
-    container_name: producer_mono
-    depends_on:
-      - kafka
-      - zookeeper
-    volumes:
-      - ./producer_mono:/usr/src/app
+  # producer_mono:
+  #   build: ./producer_mono
+  #   container_name: producer_mono
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #   volumes:
+  #     - ./producer_mono:/usr/src/app
 
-  producer_tigre:
-    build: ./producer_tigre
-    container_name: producer_tigre
-    depends_on:
-      - kafka
-      - zookeeper
-    volumes:
-      - ./producer_tigre:/usr/src/app
+  # producer_tigre:
+  #   build: ./producer_tigre
+  #   container_name: producer_tigre
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #   volumes:
+  #     - ./producer_tigre:/usr/src/app
   
      
   consumer_elefante:
@@ -77,42 +77,42 @@ services:
     volumes:
       - ./consumer_elefante:/usr/src/app
   
-  consumer_girafa:
-    build: ./consumer_girafa
-    container_name: consumer_girafa
-    depends_on:
-      - kafka
-      - zookeeper
-      - producer_girafa
-    volumes:
-      - ./consumer_girafa:/usr/src/app
+  # consumer_girafa:
+  #   build: ./consumer_girafa
+  #   container_name: consumer_girafa
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #     - producer_girafa
+  #   volumes:
+  #     - ./consumer_girafa:/usr/src/app
   
-  consumer_leon:
-    build: ./consumer_leon
-    container_name: consumer_leon
-    depends_on:
-      - kafka
-      - zookeeper
-      - producer_leon
-    volumes:
-      - ./consumer_leon:/usr/src/app
+  # consumer_leon:
+  #   build: ./consumer_leon
+  #   container_name: consumer_leon
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #     - producer_leon
+  #   volumes:
+  #     - ./consumer_leon:/usr/src/app
 
-  consumer_mono:
-    build: ./consumer_mono
-    container_name: consumer_mono
-    depends_on:
-      - kafka
-      - zookeeper
-      - producer_mono
-    volumes:
-      - ./consumer_mono:/usr/src/app
+  # consumer_mono:
+  #   build: ./consumer_mono
+  #   container_name: consumer_mono
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #     - producer_mono
+  #   volumes:
+  #     - ./consumer_mono:/usr/src/app
 
-  consumer_tigre:
-    build: ./consumer_tigre
-    container_name: consumer_tigre
-    depends_on:
-      - kafka
-      - zookeeper
-      - producer_tigre
-    volumes:
-      - ./consumer_tigre:/usr/src/app
+  # consumer_tigre:
+  #   build: ./consumer_tigre
+  #   container_name: consumer_tigre
+  #   depends_on:
+  #     - kafka
+  #     - zookeeper
+  #     - producer_tigre
+  #   volumes:
+  #     - ./consumer_tigre:/usr/src/app

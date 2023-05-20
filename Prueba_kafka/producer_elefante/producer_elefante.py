@@ -22,7 +22,7 @@ def produce_messages(random_topic, delta_t, min_message_size, max_message_size):
             time.sleep(delta_t)
 
 if __name__ == "__main__":
-    delta_t = 5  # Time interval between message sends (in seconds)
+    delta_t = 1  # Time interval between message sends (in seconds)
     min_message_size = 10  # Minimum size of the information sent by each device
     max_message_size = 20  # Maximum size of the information sent by each device
 

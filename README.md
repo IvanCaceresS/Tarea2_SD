@@ -60,3 +60,9 @@ Tambien hay que crear un consumer para cada una de esas categorias.
 medir los tiempos comparando los timestamp.
 
 Para la parte de redis hay que enviar la consulta enviada por kafka a redis para que la almacene. Una vez ahi, se envía a rabbitmq para comparar los tiempos entre kafka y redis. comparando cual se demora mas, con diferentes tamaños 
+
+# VER LO QUE TIENE UN TXT DENTRO DE CONTAINER
+cat archivo.txt
+# COPIAR TXT DE UN CONTAINER A ARCHIVO LOCAL
+docker cp <ID_DEL_CONTENEDOR>:/ruta/al/archivo.txt .
+docker cp b4eba9314a8b:/usr/src/app/latency_kafka.txt .
