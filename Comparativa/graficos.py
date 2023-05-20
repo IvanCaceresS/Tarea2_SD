@@ -15,7 +15,7 @@ fig, ax = plt.subplots()
 ax.plot(x, data)
 
 # Configurar etiquetas del eje x y y
-ax.set_xlabel('Índice')
+ax.set_xlabel('N° mensaje')
 ax.set_ylabel('Valor')
 
 # Configurar título del gráfico
@@ -23,4 +23,3 @@ ax.set_title('Gráfico de Datos')
 
 # Mostrar el gráfico
 plt.show()
-
