@@ -16,7 +16,7 @@ ax.plot(x, data)
 
 # Configurar etiquetas del eje x y y
 ax.set_xlabel('N° mensaje')
-ax.set_ylabel('Valor')
+ax.set_ylabel('Tiempo(segundos)')
 
 # Configurar título del gráfico
 ax.set_title('Gráfico de Datos')
