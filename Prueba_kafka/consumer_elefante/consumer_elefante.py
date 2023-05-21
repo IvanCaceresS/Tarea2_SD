@@ -18,7 +18,7 @@ def consume_messages(topic_name):
             print(f"Mensaje recibido de {message.topic}: {message.value}, Latencia: {latency}")
 
             # Almacenar mensaje y latencia en Redis
-            redis_client.set(message.value, latency)
+            redis_client.set(str(message.value), str(latency))
 
 if __name__ == "__main__":
     topic = "Elefante"
