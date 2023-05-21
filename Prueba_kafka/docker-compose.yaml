@@ -4,7 +4,7 @@ services:
   zookeeper:
     image: "bitnami/zookeeper:latest"
     restart: always
-    environment:
+    environment: 
       - ALLOW_ANONYMOUS_LOGIN=yes
     ports:
       - "2181:2181"
@@ -20,6 +20,13 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
+
+  redis1:
+      image: bitnami/redis:7.0.10
+      ports:
+        - "6379:6379"
+      environment:
+        - ALLOW_EMPTY_PASSWORD=yes    
   
   producer_elefante:
     build: ./producer_elefante
@@ -66,7 +73,6 @@ services:
     volumes:
       - ./producer_tigre:/usr/src/app
   
-     
   consumer_elefante:
     build: ./consumer_elefante
     container_name: consumer_elefante
