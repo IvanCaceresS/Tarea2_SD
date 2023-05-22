@@ -21,7 +21,7 @@ services:
     depends_on:
       - zookeeper
 
-  redis1:
+  redis:
       image: redis:6.2.6
       ports:
         - "6379:6379"
@@ -30,7 +30,7 @@ services:
   
   producer_elefante:
     build: ./producer_elefante
-    container_name: producer_elefante
+    container_name: producer_elefante_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -39,7 +39,7 @@ services:
   
   producer_girafa:
     build: ./producer_girafa
-    container_name: producer_girafa
+    container_name: producer_girafa_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -48,7 +48,7 @@ services:
 
   producer_leon:
     build: ./producer_leon
-    container_name: producer_leon
+    container_name: producer_leon_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -57,7 +57,7 @@ services:
   
   producer_mono:
     build: ./producer_mono
-    container_name: producer_mono
+    container_name: producer_mono_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -66,7 +66,7 @@ services:
 
   producer_tigre:
     build: ./producer_tigre
-    container_name: producer_tigre
+    container_name: producer_tigre_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -75,7 +75,7 @@ services:
   
   consumer_elefante:
     build: ./consumer_elefante
-    container_name: consumer_elefante
+    container_name: consumer_elefante_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -85,7 +85,7 @@ services:
   
   consumer_girafa:
     build: ./consumer_girafa
-    container_name: consumer_girafa
+    container_name: consumer_girafa_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -95,7 +95,7 @@ services:
   
   consumer_leon:
     build: ./consumer_leon
-    container_name: consumer_leon
+    container_name: consumer_leon_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -105,7 +105,7 @@ services:
 
   consumer_mono:
     build: ./consumer_mono
-    container_name: consumer_mono
+    container_name: consumer_mono_kafka
     depends_on:
       - kafka
       - zookeeper
@@ -115,7 +115,7 @@ services:
 
   consumer_tigre:
     build: ./consumer_tigre
-    container_name: consumer_tigre
+    container_name: consumer_tigre_kafka
     depends_on:
       - kafka
       - zookeeper

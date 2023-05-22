@@ -10,17 +10,29 @@ docker compose down -v
 docker ps
 docker exec -it <id_contenedor> bash (PARA ACCEDER A KAFKA CON ID CONTENEDOR DE KAFKA)
 
-docker exec -it producer_elefante bash
-docker exec -it producer_girafa bash
-docker exec -it producer_leon bash
-docker exec -it producer_mono bash
-docker exec -it producer_tigre bash
+docker exec -it producer_elefante_kafka bash
+docker exec -it producer_girafa_kafka bash
+docker exec -it producer_leon_kafka bash
+docker exec -it producer_mono_kafka bash
+docker exec -it producer_tigre_kafka bash
 
-docker exec -it consumer_elefante bash
-docker exec -it consumer_girafa bash
-docker exec -it consumer_leon bash
-docker exec -it consumer_mono bash
-docker exec -it consumer_tigre bash
+docker exec -it consumer_elefante_kafka bash
+docker exec -it consumer_girafa_kafka bash
+docker exec -it consumer_leon_kafka bash
+docker exec -it consumer_mono_kafka bash
+docker exec -it consumer_tigre_kafka bash
+
+docker exec -it producer_elefante_rabbit bash
+docker exec -it producer_girafa_rabbit bash
+docker exec -it producer_leon_rabbit bash
+docker exec -it producer_mono_rabbit bash
+docker exec -it producer_tigre_rabbit bash
+
+docker exec -it consumer_elefante_rabbit bash
+docker exec -it consumer_girafa_rabbit bash
+docker exec -it consumer_leon_rabbit bash
+docker exec -it consumer_mono_rabbit bash
+docker exec -it consumer_tigre_rabbit bash
 
 
 # PROBANDO SI FUNCIONA KAFKA

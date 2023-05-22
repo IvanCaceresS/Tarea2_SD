@@ -2,12 +2,13 @@ import pika
 import time
 import random
 import json
+import redis
 
 def consume_messages(queue):
     connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
     channel = connection.channel()
     channel.queue_declare(queue=queue)
-
+    redis_client = redis.Redis(host='ba97cc232110', port=6379, decode_responses=True)
     # Crear o abrir el archivo de texto para almacenar las latencias
     with open('latencias.txt', 'a') as file:
 
@@ -22,6 +23,8 @@ def consume_messages(queue):
 
             # Almacenar la latencia en el archivo de texto
             file.write(f"{latency}\n")
+            print("pruebaa: ", message["value"]["data"])
+            print("Desde redis: ",redis_client.get(str(message["value"]["data"])))
 
         channel.basic_consume(queue=queue, on_message_callback=callback, auto_ack=True)
 
