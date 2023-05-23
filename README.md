@@ -1,6 +1,5 @@
 # Sistemas_Dristribuidos_T2
 
-# -----------------------KAFKA------------------------------
 # Levantar sistema
 docker compose up --build 
 # Botar sistema
@@ -10,30 +9,17 @@ docker compose down -v
 docker ps
 docker exec -it <id_contenedor> bash (PARA ACCEDER A KAFKA CON ID CONTENEDOR DE KAFKA)
 
-docker exec -it producer_elefante_kafka bash
-docker exec -it producer_girafa_kafka bash
-docker exec -it producer_leon_kafka bash
-docker exec -it producer_mono_kafka bash
-docker exec -it producer_tigre_kafka bash
+docker exec -it producer_elefante bash
+docker exec -it producer_girafa bash
+docker exec -it producer_leon bash
+docker exec -it producer_mono bash
+docker exec -it producer_tigre bash
 
-docker exec -it consumer_elefante_kafka bash
-docker exec -it consumer_girafa_kafka bash
-docker exec -it consumer_leon_kafka bash
-docker exec -it consumer_mono_kafka bash
-docker exec -it consumer_tigre_kafka bash
-
-docker exec -it producer_elefante_rabbit bash
-docker exec -it producer_girafa_rabbit bash
-docker exec -it producer_leon_rabbit bash
-docker exec -it producer_mono_rabbit bash
-docker exec -it producer_tigre_rabbit bash
-
-docker exec -it consumer_elefante_rabbit bash
-docker exec -it consumer_girafa_rabbit bash
-docker exec -it consumer_leon_rabbit bash
-docker exec -it consumer_mono_rabbit bash
-docker exec -it consumer_tigre_rabbit bash
-
+docker exec -it consumer_elefante bash
+docker exec -it consumer_girafaa bash
+docker exec -it consumer_leon bash
+docker exec -it consumer_mono bash
+docker exec -it consumer_tigre bash
 
 # PROBANDO SI FUNCIONA KAFKA
 LISTAMOS LOS TOPICS EXISTENTES:
@@ -43,25 +29,8 @@ Enviamos mensajes desde un producer:
 Leemos los mensajes desde un consumer:
 - kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mi_tema --from-beginning
 
-# -----------------------------------------------------------
-# -----------------------RABBITMQ----------------------------
-# Levantar sistema
-docker compose up --build 
-# Botar sistema
-docker compose down -v
 
-# Abrir la bash de cada contener creado
-docker ps
-docker exec -it <id_contenedor> bash (PARA ACCEDER A RABBITMQ CON ID CONTENEDOR DE RABBITMQ)
-docker exec -it producer1 bash
-docker exec -it producer1 bash
-docker exec -it producer3 bash
-docker exec -it consumer1 bash
-docker exec -it consumer2 bash
-docker exec -it consumer3 bash
-docker exec -it consumer4 bash
 # -----------------------------------------------------------
-
 
 Escenario imaginario: Gestión de sensores ambientales en una ciudad inteligente
 
@@ -71,10 +40,3 @@ HAY QUE CREAR UN PRODUCER POR CADA CATEGORIA: calidad del aire, la temperatura, 
 Tambien hay que crear un consumer para cada una de esas categorias.
 medir los tiempos comparando los timestamp.
 
-Para la parte de redis hay que enviar la consulta enviada por kafka a redis para que la almacene. Una vez ahi, se envía a rabbitmq para comparar los tiempos entre kafka y redis. comparando cual se demora mas, con diferentes tamaños 
-
-# VER LO QUE TIENE UN TXT DENTRO DE CONTAINER
-cat archivo.txt
-# COPIAR TXT DE UN CONTAINER A ARCHIVO LOCAL
-docker cp <ID_DEL_CONTENEDOR>:/ruta/al/archivo.txt .
-docker cp b4eba9314a8b:/usr/src/app/latency_kafka.txt .

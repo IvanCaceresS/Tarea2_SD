@@ -1,0 +1,216 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:latest"
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  producer_elefante_rabbit:
+    build: ./producer_elefante_rabbit
+    container_name: producer_elefante_rabbit
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./producer_elefante_rabbit:/usr/src/app
+
+  producer_girafa_rabbit:
+    build: ./producer_girafa_rabbit
+    container_name: producer_girafa_rabbit
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./producer_girafa_rabbit:/usr/src/app
+
+  producer_leon_rabbit:
+    build: ./producer_leon_rabbit
+    container_name: producer_leon_rabbit
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./producer_leon_rabbit:/usr/src/app
+
+  producer_mono_rabbit:
+    build: ./producer_mono_rabbit
+    container_name: producer_mono_rabbit
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./producer_mono_rabbit:/usr/src/app
+
+  producer_tigre_rabbit:
+    build: ./producer_tigre_rabbit
+    container_name: producer_tigre_rabbit
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./producer_tigre_rabbit:/usr/src/app
+
+  consumer_elefante_rabbit:
+    build: ./consumer_elefante_rabbit
+    container_name: consumer_elefante_rabbit
+    depends_on:
+      - rabbitmq
+      - producer_elefante_rabbit
+    volumes:
+      - ./consumer_elefante_rabbit:/usr/src/app
+
+  consumer_girafa_rabbit:
+    build: ./consumer_girafa_rabbit
+    container_name: consumer_girafa_rabbit
+    depends_on:
+      - rabbitmq
+      - producer_girafa_rabbit
+    volumes:
+      - ./consumer_girafa_rabbit:/usr/src/app
+
+  consumer_leon_rabbit:
+    build: ./consumer_leon_rabbit
+    container_name: consumer_leon_rabbit
+    depends_on:
+      - rabbitmq
+      - producer_leon_rabbit
+    volumes:
+      - ./consumer_leon_rabbit:/usr/src/app
+
+  consumer_mono_rabbit:
+    build: ./consumer_mono_rabbit
+    container_name: consumer_mono_rabbit
+    depends_on:
+      - rabbitmq
+      - producer_mono_rabbit
+    volumes:
+      - ./consumer_mono_rabbit:/usr/src/app
+
+  consumer_tigre_rabbit:
+    build: ./consumer_tigre_rabbit
+    container_name: consumer_tigre_rabbit
+    depends_on:
+      - rabbitmq
+      - producer_tigre_rabbit
+    volumes:
+      - ./consumer_tigre_rabbit:/usr/src/app
+
+  zookeeper:
+    image: "bitnami/zookeeper:latest"
+    restart: always
+    environment: 
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    ports:
+      - "2181:2181"
+      - "2888:2888"
+      - "3888:3888"
+  kafka:
+    image: "bitnami/kafka:latest"
+    restart: always
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+
+  redis:
+      image: redis:6.2.6
+      ports:
+        - "6379:6379"
+      environment:
+        - ALLOW_EMPTY_PASSWORD=yes    
+  
+  producer_elefante_kafka:
+    build: ./producer_elefante_kafka
+    container_name: producer_elefante_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer_elefante_kafka:/usr/src/app
+  
+  producer_girafa_kafka:
+    build: ./producer_girafa_kafka
+    container_name: producer_girafa_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer_girafa_kafka:/usr/src/app
+
+  producer_leon_kafka:
+    build: ./producer_leon_kafka
+    container_name: producer_leon_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer_leon_kafka:/usr/src/app
+  
+  producer_mono_kafka:
+    build: ./producer_mono_kafka
+    container_name: producer_mono_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer_mono_kafka:/usr/src/app
+
+  producer_tigre_kafka:
+    build: ./producer_tigre_kafka
+    container_name: producer_tigre_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+    volumes:
+      - ./producer_tigre_kafka:/usr/src/app
+  
+  consumer_elefante_kafka:
+    build: ./consumer_elefante_kafka
+    container_name: consumer_elefante_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer_elefante_kafka
+    volumes:
+      - ./consumer_elefante_kafka:/usr/src/app
+  
+  consumer_girafa_kafka:
+    build: ./consumer_girafa_kafka
+    container_name: consumer_girafa_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer_girafa_kafka
+    volumes:
+      - ./consumer_girafa_kafka:/usr/src/app
+  
+  consumer_leon_kafka:
+    build: ./consumer_leon_kafka
+    container_name: consumer_leon_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer_leon_kafka
+    volumes:
+      - ./consumer_leon_kafka:/usr/src/app
+
+  consumer_mono_kafka:
+    build: ./consumer_mono_kafka
+    container_name: consumer_mono_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer_mono_kafka
+    volumes:
+      - ./consumer_mono_kafka:/usr/src/app
+
+  consumer_tigre_kafka:
+    build: ./consumer_tigre_kafka
+    container_name: consumer_tigre_kafka
+    depends_on:
+      - kafka
+      - zookeeper
+      - producer_tigre_kafka
+    volumes:
+      - ./consumer_tigre_kafka:/usr/src/app
