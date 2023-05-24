@@ -15,11 +15,11 @@ def consume_messages(topic_name):
             message_timestamp = message.value["timestamp"]
             latency = received_timestamp - message_timestamp
             file.write(f"{latency}\n")
-            #print(f"Mensaje recibido de {message.topic}: {message.value}, Latencia: {latency}")
+            print(f"Mensaje recibido de {message.topic}: {message.value}, Latencia: {latency}")
 
             # Almacenar mensaje y latencia en Redis
             redis_client.set(message.value["value"]["data"], latency)
-            #print("hacia redis-> ",str(message.value["value"]["data"])," ",redis_client.get(str(message.value["value"]["data"])))
+            print("hacia redis-> ",str(message.value["value"]["data"])," ",redis_client.get(str(message.value["value"]["data"])))
 
 if __name__ == "__main__":
     topic = "Elefante"

@@ -5,9 +5,8 @@ from kafka import KafkaProducer
 
 def generate_message(message_size):
     timestamp = time.time()
-    #values = ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=message_size))
-    #message = {"timestamp": timestamp, "value": {"data": values}}
-    message = {"timestamp": timestamp, "value": {"data": "hola"}}
+    values = ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=message_size))
+    message = {"timestamp": timestamp, "value": {"data": values}}
     return json.dumps(message)
 
 def produce_messages(random_topic, delta_t, min_message_size, max_message_size):

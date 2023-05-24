@@ -18,7 +18,7 @@ def consume_messages(queue):
             sent_timestamp = message['timestamp']
             latency = received_timestamp - sent_timestamp
 
-            #print(f"Mensaje recibido de {queue}: {body}")
+            print(f"Mensaje recibido de {queue}: {body}")
             print(f"Latencia: {latency} segundos")
             
             msg = message["value"]["data"]

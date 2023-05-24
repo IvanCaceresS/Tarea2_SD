@@ -7,7 +7,7 @@ from kafka import KafkaProducer
 def generate_messages():
     messages = []
     
-    with open('./datos_pesados.txt', 'r') as file:
+    with open('./datos_liviano.txt', 'r') as file:
         for line in file:
             data = line.strip()  # Lee y elimina los espacios en blanco alrededor de cada línea
             message = data
@@ -23,7 +23,7 @@ def produce_messages(topic, delta_t, messages):
         message = {"timestamp": timestamp, "value": {"data": json.loads(messages[i])}}
         msg = json.dumps(message)
         producer.send(topic, value=msg)
-        #print(f"{topic}, sending: {msg}")
+        print(f"{topic}, sending: {msg}")
         time.sleep(delta_t)
 
 if __name__ == "__main__":

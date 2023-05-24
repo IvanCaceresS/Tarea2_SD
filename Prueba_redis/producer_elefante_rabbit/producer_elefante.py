@@ -6,7 +6,7 @@ import random
 def generate_messages():
     messages = []
     
-    with open('./datos_pesados.txt', 'r') as file:
+    with open('./datos_liviano.txt', 'r') as file:
         for line in file:
             data = line.strip()  # Lee y elimina los espacios en blanco alrededor de cada línea
             message = data
@@ -23,7 +23,7 @@ def produce_messages(queue, delta_t,messages):
             message = {"timestamp": timestamp, "value": {"data": json.loads(messages[i])}}
             msg = json.dumps(message)
             channel.basic_publish(exchange='', routing_key=queue, body=msg)
-            #print(f"{queue}, sending: {msg}")
+            print(f"{queue}, sending: {msg}")
             time.sleep(delta_t)
         
 
