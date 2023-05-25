@@ -18,7 +18,7 @@ def produce_messages(queue, delta_t, min_message_size, max_message_size):
             message = generate_message(message_size)           
             channel.basic_publish(exchange='', routing_key=queue, body=message)
             print(f"{queue}, sending: {message}")
-            #time.sleep(delta_t)
+            time.sleep(delta_t)
 
 if __name__ == "__main__":
     queue = "Girafa"

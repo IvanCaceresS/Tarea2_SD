@@ -7,7 +7,7 @@ from kafka import KafkaProducer
 def generate_messages():
     messages = []
     
-    with open('./datos_liviano.txt', 'r') as file:
+    with open('./datos_livianos.txt', 'r') as file:
         for line in file:
             data = line.strip()  # Lee y elimina los espacios en blanco alrededor de cada línea
             message = data
@@ -27,6 +27,6 @@ def produce_messages(topic, delta_t, messages):
         time.sleep(delta_t)
 
 if __name__ == "__main__":
-    delta_t = 0  # Time interval between message sends (in seconds)
+    delta_t = 1  # Time interval between message sends (in seconds)
     messages = generate_messages()
     produce_messages("Elefante", delta_t, messages)
